@@ -1,0 +1,19 @@
+<div :class="style.bem('container')">
+  <div :class="style.bem()">
+    <div :class="style.bem('list')">
+      <div
+        :class="[style.bem('word'),idxLine == current.line && style.bem('word','current'),idxLine == current.line && style.bem('word',current.status)]"
+        v-for="(line,idxLine) in boardLayout"
+        :key="idxLine"
+      >
+        <div
+          :class="[style.bem('letter'),style.bem('letter', letter.status), idxLetter == current.char && idxLine == current.line ? style.bem('letter', 'current') : '']"
+          v-for="letter, idxLetter in line"
+          :key="idxLetter"
+        >
+          {{ letter.letter }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

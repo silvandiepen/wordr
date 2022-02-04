@@ -1,0 +1,6 @@
+@import "./theme.scss";
+@import "@sil/themer/use";
+
+@function v($key, $value: "") {
+  @return variable($key, $value);
+}

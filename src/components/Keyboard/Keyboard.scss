@@ -1,0 +1,39 @@
+.keyboard {
+  $block: &;
+  display: flex;
+  gap: 0.25em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: variable(space);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__line {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25em;
+  }
+  &__char {
+    width: 3em;
+    height: 3em;
+    border: none;
+    border-radius: variable(borderRadius);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &--unused {
+      background-color: variable(background75);
+      color: variable(background75Text);
+    }
+    &--used {
+      background-color: variable(background90);
+      color: variable(background75);
+    }
+    &--correct {
+      background-color: variable(primary);
+      color: variable(primaryText);
+    }
+  }
+}

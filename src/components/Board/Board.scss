@@ -1,0 +1,155 @@
+.board {
+  $block: &;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 50vh;
+  &::before {
+    content: "";
+    width: 100%;
+    height: variable(space);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__container {
+    height: 50vh;
+    overflow: scroll;
+  }
+  &__list {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  &__word {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    &--current {
+    }
+    &--wrong {
+      animation: Wrong 0.5s ease-in-out forwards;
+      @at-root {
+        @keyframes Wrong {
+          0% {
+            transform: translateX(0);
+          }
+          20% {
+            transform: translateX(-1%);
+          }
+          40% {
+            transform: translateX(1%);
+          }
+          60% {
+            transform: translateX(-1%);
+          }
+          80% {
+            transform: translateX(1%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+    &--correct {
+      animation: Correct 1s ease-in-out forwards;
+      @at-root {
+        @keyframes Correct {
+          0% {
+            transform: scale(1);
+          }
+          33.33% {
+            transform: scale(0.9);
+          }
+          66.66% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+  &__letter {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: variable(borderRadius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2em;
+
+    --empty: #{variable(variable(background90))};
+
+    &--current {
+      animation: currentLetter 3s infinite;
+    }
+
+    @at-root {
+      @keyframes currentLetter {
+        0%,
+        100% {
+          transform: scale(1.05);
+          background-color: var(--empty);
+        }
+        50% {
+          background-color: variable(background75);
+          transform: scale(0.95);
+        }
+      }
+    }
+
+    &--empty {
+      background-color: var(--empty);
+    }
+    &--correct {
+      background-color: var(--empty);
+      animation: correctLetter 0.5s forwards;
+
+      @at-root {
+        @keyframes correctLetter {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            background-color: variable(background75);
+            transform: scale(0.95);
+          }
+          100% {
+            background-color: variable(success);
+            transform: scale(1);
+          }
+        }
+      }
+    }
+    &--change {
+      background-color: var(--empty);
+      animation: warningLetter 0.5s forwards;
+
+      @at-root {
+        @keyframes warningLetter {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            background-color: variable(background75);
+            transform: scale(0.95);
+          }
+          100% {
+            background-color: variable(warning);
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}

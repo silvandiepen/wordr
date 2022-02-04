@@ -1,0 +1,62 @@
+.scores {
+  $block: &;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: v(space);
+  background-color: v(background90);
+
+  border-radius: v(borderRadius);
+
+  width: var(--space);
+  height: var(--space);
+  // box-shadow: 0 0 0 2px red;
+
+  overflow: hidden;
+
+  &--animate {
+    animation: bumpIn 0.5s ease-in-out;
+    @keyframes bumpIn {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    #{$block}__container {
+      animation: goUp 1s ease-in-out;
+
+      @keyframes goUp {
+        0% {
+          transform: translateY(-33.33%);
+        }
+        60% {
+          transform: translateY(-75%);
+        }
+        100% {
+          transform: translateY(-66.66%);
+        }
+      }
+    }
+  }
+  &__container {
+    transform: translateY(-33.33%);
+  }
+
+  &__old,
+  &__current,
+  &__new {
+    width: var(--space);
+    height: var(--space);
+    line-height: var(--space);
+    // box-shadow: 0 0 5px 0 white;
+    // padding: v(space-xs);
+    font-size: 1em;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+}

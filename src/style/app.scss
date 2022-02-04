@@ -1,0 +1,6 @@
+@import "@sil/themer/app";
+
+body {
+  background-color: variable(background);
+  color: variable(foreground);
+}

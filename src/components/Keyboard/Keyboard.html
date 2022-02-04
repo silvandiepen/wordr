@@ -1,0 +1,15 @@
+<div :class="style.bem()">
+  <div
+    :class="style.bem('line')"
+    v-for="line,ldx in keyboardLetters"
+    :key="ldx"
+  >
+    <button
+      v-for="letter,lidx in line"
+      :key="lidx"
+      :class="[style.bem('char'), style.bem('char',letter.status)]"
+    >
+      {{letter.letter}}
+    </button>
+  </div>
+</div>
