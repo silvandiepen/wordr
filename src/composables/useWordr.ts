@@ -10,7 +10,7 @@ import {
 import data from "../data/words.json";
 
 export const state = reactive<State>({
-  word: "sugar".split(""),
+  word: [],
   line: 0,
   char: 0,
   lettersUsed: [],
@@ -96,8 +96,14 @@ export const useWordr = () => {
     }
   };
 
+  const setWord = () => {
+    const random = Math.floor(Math.random() * availableWords.length);
+    state.word = availableWords[random].split("");
+  };
+
   onMounted(() => {
     if (board.value.length < 1) insertLine();
+    if (state.word.length < 1) setWord();
   });
 
   const removeLetter = () => {
