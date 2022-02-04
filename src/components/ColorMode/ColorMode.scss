@@ -9,6 +9,10 @@
     transition: background-color 1s ease-in-out;
     border-radius: 50%;
 
+    &:focus {
+      outline: none;
+    }
+
     &--light {
       background-color: v(caution);
       &::before {

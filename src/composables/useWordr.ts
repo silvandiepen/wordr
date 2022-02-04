@@ -91,7 +91,6 @@ export const useWordr = () => {
     const line = board.value.length / 5;
 
     for (let i = 0; i < 5; i++) {
-      console.log({ ...emptyLetter, line, char: i });
       board.value.push({ ...emptyLetter, line, char: i });
     }
   };

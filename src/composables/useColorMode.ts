@@ -36,9 +36,15 @@ export const useColorMode = () => {
 
     const storageMode = localStorage.getItem("colorMode");
 
-    colorState.mode =
-      storageMode || isDarkMode ? ColorMode.DARK : ColorMode.LIGHT;
+    console.log(`stored`, storageMode);
 
+    // colorState.mode =
+    //   storageMode || isDarkMode ? ColorMode.DARK : ColorMode.LIGHT;
+    if (storageMode) {
+      colorState.mode = storageMode as ColorMode;
+    } else {
+      colorState.mode = isDarkMode ? ColorMode.DARK : ColorMode.LIGHT;
+    }
     setCurrentMode();
   };
 
