@@ -3,6 +3,7 @@
 body {
   background-color: variable(background);
   color: variable(foreground);
+  user-select: none;
 }
 
 body[color-mode="light"] {

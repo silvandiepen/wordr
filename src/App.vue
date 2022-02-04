@@ -35,6 +35,9 @@ html {
 #app {
   height: 100vh;
 }
+.scores {
+  z-index: 1;
+}
 .color-mode {
   position: absolute;
   right: 0;
