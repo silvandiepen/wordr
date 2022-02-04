@@ -8,8 +8,10 @@
       v-for="letter,lidx in line"
       :key="lidx"
       :class="[style.bem('char'), style.bem('char',letter.status)]"
+      @click="setLetter(letter.letter)"
     >
       {{letter.letter}}
     </button>
   </div>
+  <button @click="removeLetter()">Backspace</button>
 </div>

@@ -12,6 +12,10 @@
   height: var(--space);
   // box-shadow: 0 0 0 2px red;
 
+  @media screen and (max-width: 750px) {
+    --space: 2em;
+  }
+
   overflow: hidden;
 
   &--animate {

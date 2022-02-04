@@ -7,6 +7,9 @@ export default defineComponent({
     const style = new Style("keyboard");
     const { inputLetter, removeLetter, keyboardLetters, board } = useWordr();
 
+    const setLetter = (letter: string) => {
+      inputLetter(letter);
+    };
     onMounted(() => {
       window.addEventListener("keydown", (e) => {
         if (e.key === "Backspace") {
@@ -14,12 +17,14 @@ export default defineComponent({
         }
       });
       window.addEventListener("keypress", function (e) {
-        inputLetter(String.fromCharCode(e.keyCode));
+        setLetter(String.fromCharCode(e.keyCode));
       });
     });
 
     return {
       style,
+      removeLetter,
+      setLetter,
       board,
       keyboardLetters,
     };
