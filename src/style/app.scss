@@ -4,3 +4,11 @@ body {
   background-color: variable(background);
   color: variable(foreground);
 }
+
+body[color-mode="light"] {
+  @include customProperties($lightmode-colors);
+}
+
+body[color-mode="dark"] {
+  @include customProperties($darkmode-colors);
+}

@@ -22,11 +22,14 @@
     border-radius: variable(borderRadius);
     text-transform: uppercase;
     font-weight: bold;
+    background-color: variable(background75);
+    color: variable(background75Text);
 
     &--unused {
       background-color: variable(background75);
       color: variable(background75Text);
     }
+    &[disabled],
     &--used {
       background-color: variable(background90);
       color: variable(background75);

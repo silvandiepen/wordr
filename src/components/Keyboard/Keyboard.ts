@@ -1,11 +1,12 @@
-import { defineComponent, onMounted } from "vue";
+import { computed, defineComponent, onMounted } from "vue";
 import { Style } from "@sil/tools";
 import { useWordr } from "../../composables/useWordr";
 
 export default defineComponent({
   setup() {
     const style = new Style("keyboard");
-    const { inputLetter, removeLetter, keyboardLetters, board } = useWordr();
+    const { inputLetter, removeLetter, current, keyboardLetters, board } =
+      useWordr();
 
     const setLetter = (letter: string) => {
       inputLetter(letter);
@@ -23,6 +24,7 @@ export default defineComponent({
 
     return {
       style,
+      current,
       removeLetter,
       setLetter,
       board,

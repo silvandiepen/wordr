@@ -12,6 +12,13 @@
     >
       {{letter.letter}}
     </button>
+    <button
+      v-if="ldx == keyboardLetters.length - 1 "
+      :disabled="current.run.length < 1"
+      :class="[style.bem('char'),style.bem('char','backspace')]"
+      @click="removeLetter()"
+    >
+      ←
+    </button>
   </div>
-  <button @click="removeLetter()">Backspace</button>
 </div>

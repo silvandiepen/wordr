@@ -1,0 +1,53 @@
+.color-mode {
+  &__button {
+    --color-mode-size: 2rem;
+    width: var(--color-mode-size);
+    height: var(--color-mode-size);
+    border: none;
+    background-color: v(background50);
+    text-indent: -999em;
+    transition: background-color 1s ease-in-out;
+    border-radius: 50%;
+
+    &--light {
+      background-color: v(caution);
+      &::before {
+        animation: toLight 1s forwards;
+        @keyframes toLight {
+          from {
+            transform: translate(0%, -50%);
+          }
+          to {
+            transform: translate(-150%, -50%);
+          }
+        }
+      }
+    }
+    &--dark {
+      background-color: v(background50);
+
+      &::before {
+        animation: toDark 1s forwards;
+        @keyframes toDark {
+          from {
+            transform: translate(-150%, -50%);
+          }
+          to {
+            transform: translate(0%, -50%);
+          }
+        }
+      }
+    }
+    &::before {
+      content: "";
+      width: var(--color-mode-size);
+      height: var(--color-mode-size);
+      background-color: v(background);
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
+  }
+}
