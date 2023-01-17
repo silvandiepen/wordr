@@ -33,13 +33,8 @@ export const useColorMode = () => {
 
   const initColorMode = () => {
     const isDarkMode = window.matchMedia("prefers-color-scheme: dark").matches;
-
     const storageMode = localStorage.getItem("colorMode");
 
-    console.log(`stored`, storageMode);
-
-    // colorState.mode =
-    //   storageMode || isDarkMode ? ColorMode.DARK : ColorMode.LIGHT;
     if (storageMode) {
       colorState.mode = storageMode as ColorMode;
     } else {
